@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- <form>
+			<label for="mail"
+				>I would like yuo to provide me with an e-mail address:</label
+			>
+			<input type="email" name="mail" id="mail" required />
+			<button>Submit</button>
+		</form> -->
+
+		<form id="form-main" novalidate>
+			<p>
+				<label for="mail">
+					<span> Please enter an e-mail address: </span>
+					<input type="email" name="mail" id="mail" required minlength="10" />
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</p>
+			<button>Submit</button>
+		</form>
+		<script src="validate.js"></script>
+	</body>
+</html>
