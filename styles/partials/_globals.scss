@@ -1,1 +1,55 @@
-$small-screen: 550px;
+// Color Pallete
+$blue-dark: #131f4a;
+$blue-medium: #5fa5ee;
+$blue-light: #eef3f6;
+$gray: #f3f4f5;
+$white-text: #dae0e4;
+$black: #060a22;
+$border: #17356b;
+$input-shadow: #d7e8fb;
+$input-border: #bebebe;
+$red: #e25c59;
+$input-invalid-shadow: #f8d6d5;
+
+$max-width: 1280px;
+$border-radius: 4px;
+
+$extra-small-screen: 0px;
+$small-screen: 600px;
+$medium-screen: 960px;
+$large-screen: 1280px;
+$extra-large-screen: 1920px;
+
+@mixin transition {
+  transition: 0.3s ease-out;
+}
+
+@mixin x-smal {
+  @media screen and (min-width: $extra-large-screen) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (min-width: $small-screen) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: $medium-screen) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and(min-width:$large-screen) {
+    @content;
+  }
+}
+
+@mixin x-large {
+  @media screen and (min-width: $extra-large-screen) {
+    @content;
+  }
+}

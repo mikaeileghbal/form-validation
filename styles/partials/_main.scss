@@ -1,0 +1,64 @@
+.max-width {
+  max-width: $max-width;
+}
+
+header {
+  width: 100%;
+  padding: 16px 0;
+  background-color: $blue-dark;
+  box-shadow: 0 10px 1px $black;
+  border-bottom: 1px solid $border;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.topnav {
+  margin-left: auto;
+  li {
+    display: inline;
+    margin: 0 6px;
+  }
+
+  a {
+    color: $white-text;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid $white-text;
+    padding: 6px 15px;
+    border-radius: $border-radius;
+    @include transition;
+
+    &:hover {
+      background-color: $blue-medium;
+      border-color: $blue-medium;
+    }
+  }
+}
+
+main {
+  margin-top: 10px;
+  background-color: $blue-light;
+}
+
+h1 {
+  text-align: center;
+  margin: 1em;
+}
+
+.logo {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

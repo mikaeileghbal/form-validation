@@ -1,0 +1,93 @@
+#multiPageForm {
+  width: 70%;
+  padding: 40px;
+  margin: 100px auto;
+  min-width: 300px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  color: $blue-dark;
+  border-radius: $border-radius;
+}
+
+p {
+  margin: 1em 0;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $input-border;
+  font-size: 17px;
+  border-radius: $border-radius;
+
+  &:invalid {
+    box-shadow: 0 0 0 2px $input-invalid-shadow;
+    border-color: $red;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $input-shadow;
+    border-color: $blue-medium;
+  }
+}
+
+.tab {
+  //display: none;
+}
+
+.button-container {
+  float: right;
+}
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+button {
+  background-color: $blue-medium;
+  color: #ffffff;
+  border: none;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: darken($color: $blue-medium, $amount: 10%);
+  }
+}
+
+#previous {
+  background-color: #bbbbbb;
+}
+
+.step-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.finished {
+    background-color: $blue-medium;
+  }
+}
