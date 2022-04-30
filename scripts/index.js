@@ -22,6 +22,10 @@ function showTab(tabIndex) {
 function previousNext(stepIndex) {
   const tabs = document.querySelectorAll(".tab");
 
+  if (stepIndex === 1 && !validateFormTab()) {
+    return;
+  }
+
   tabs[currentTab].style.display = "none";
 
   currentTab = currentTab + stepIndex;
@@ -44,7 +48,25 @@ function setStepsIndicator(stepIndex) {
   steps[stepIndex].classList.add("active");
 }
 
-function validateFormTab() {}
+function validateFormTab() {
+  let valid = true;
+  const tab = document.querySelectorAll(".tab")[currentTab];
+  const inputs = tab.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    if (input.value === "") {
+      valid = false;
+      console.log("empty");
+      input.classList.add("invalid");
+    }
+  });
+
+  if (valid) {
+    document.querySelectorAll(".step")[currentTab].classList.add("finish");
+  }
+
+  return valid;
+}
 
 function submitForm() {
   document.querySelector("#multiPageForm").submitForm();
@@ -56,4 +78,10 @@ document.querySelector("#previous").addEventListener("click", (e) => {
 
 document.querySelector("#next").addEventListener("click", (e) => {
   previousNext(1);
+});
+
+document.querySelectorAll("input:not([type='button'])").forEach((input) => {
+  input.addEventListener("input", (e) => {
+    e.target.classList.remove("invalid");
+  });
 });
