@@ -1,5 +1,5 @@
 #multiPageForm {
-  width: 70%;
+  width: 45%;
   padding: 40px;
   margin: 100px auto;
   min-width: 300px;
@@ -21,7 +21,7 @@ input {
   font-size: 17px;
   border-radius: $border-radius;
 
-  &:invalid {
+  &.invalid {
     box-shadow: 0 0 0 2px $input-invalid-shadow;
     border-color: $red;
   }
@@ -36,6 +36,7 @@ input {
 
 .tab {
   display: none;
+  font-weight: 600;
 }
 
 .button-container {
@@ -89,5 +90,6 @@ button {
 
   &.finish {
     background-color: $blue-medium;
+    opacity: 1;
   }
 }

@@ -47,6 +47,8 @@ header {
 
 .topnav {
   margin-left: auto;
+  color: #dae0e4;
+  font-size: 14px;
 }
 
 .topnav li {
@@ -91,7 +93,7 @@ h1 {
 }
 
 #multiPageForm {
-  width: 70%;
+  width: 45%;
   padding: 40px;
   margin: 100px auto;
   min-width: 300px;
@@ -115,7 +117,7 @@ input {
   border-radius: 4px;
 }
 
-input:invalid {
+input.invalid {
   -webkit-box-shadow: 0 0 0 2px #f8d6d5;
           box-shadow: 0 0 0 2px #f8d6d5;
   border-color: #e25c59;
@@ -130,6 +132,7 @@ input:active, input:focus {
 
 .tab {
   display: none;
+  font-weight: 600;
 }
 
 .button-container {
@@ -185,5 +188,6 @@ button:hover {
 
 .step.finish {
   background-color: #5fa5ee;
+  opacity: 1;
 }
 /*# sourceMappingURL=index.css.map */
