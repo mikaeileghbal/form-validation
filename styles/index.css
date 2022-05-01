@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 *,
 ::before,
 ::after {
@@ -11,7 +12,7 @@ body {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
   background-color: #f1f1f1;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -81,7 +82,8 @@ main {
 
 h1 {
   text-align: center;
-  margin: 1em;
+  margin: 0 1em 1em;
+  font-weight: 500;
 }
 
 .logo {
@@ -100,13 +102,12 @@ h1 {
   background-color: #ffffff;
   -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
-  font-family: sans-serif;
   color: #131f4a;
   border-radius: 4px;
 }
 
 p {
-  margin: 1em 0;
+  margin: 1em 0 1.8em 0;
 }
 
 input {
@@ -114,6 +115,7 @@ input {
   padding: 10px;
   border: 1px solid #bebebe;
   font-size: 17px;
+  color: #5c5c5c;
   border-radius: 4px;
 }
 
@@ -214,6 +216,6 @@ button:focus {
   color: #e25c59;
   font-weight: 600;
   font-size: 14px;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
 }
 /*# sourceMappingURL=index.css.map */
