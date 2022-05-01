@@ -22,8 +22,11 @@ input {
   border-radius: $border-radius;
 
   &.invalid {
-    box-shadow: 0 0 0 2px $input-invalid-shadow;
     border-color: $red;
+  }
+
+  &.invalid + .error {
+    display: block;
   }
 
   &:active,
@@ -32,6 +35,16 @@ input {
     box-shadow: 0 0 0 2px $input-shadow;
     border-color: $blue-medium;
   }
+  &.invalid:active,
+  &.invalid:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $input-invalid-shadow;
+    border-color: $red;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: #bbbbbb;
 }
 
 .tab {
@@ -63,6 +76,10 @@ button {
   &:hover {
     background-color: darken($color: $blue-medium, $amount: 10%);
   }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $input-shadow;
+  }
 }
 
 #previous {
@@ -92,4 +109,12 @@ button {
     background-color: $blue-medium;
     opacity: 1;
   }
+}
+
+.error {
+  display: none;
+  color: $red;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 0.25rem;
 }
