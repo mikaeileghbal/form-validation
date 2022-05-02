@@ -55,12 +55,9 @@ const formValidate = (function () {
     const inputs = tab.querySelectorAll("input");
 
     inputs.forEach((input) => {
-      const errorCode = validator.validate(input, input.type);
-      if (errorCode !== -1) {
+      if (!input.validity.valid) {
         valid = false;
-        console.log("empty");
-        input.classList.add("invalid");
-        input.nextElementSibling.textContent = `This field ${errorCode}.`;
+        input.nextElementSibling.textContent = getErrorMessage(input);
       }
     });
 
@@ -69,6 +66,28 @@ const formValidate = (function () {
     }
 
     return valid;
+  }
+
+  function getErrorMessage(input) {
+    const errorMessages = {
+      required: "This field is required.",
+      email: "You need to fill in a valid email address.",
+      password: "Your password must containt at least 8 characters",
+      tel: "You must fill in a phone number",
+      number: "You must fill in only numbers",
+      tooShort: "You need to enter at least",
+    };
+    console.log("type", input.type);
+
+    if (input.validity.valueMissing) {
+      return errorMessages["required"];
+    } else if (input.validity.typeMismatch) {
+      return errorMessages[input.type];
+    } else if (input.validity.patterMismatch) {
+      return errorMessages[input.type];
+    } else if (input.validity.tooShort) {
+      return `${errorMessages["tooShort"]} ${input.minLength} characters`;
+    }
   }
 
   function submitForm() {
@@ -85,48 +104,7 @@ const formValidate = (function () {
 
   document.querySelectorAll("input:not([type='button'])").forEach((input) => {
     input.addEventListener("input", (e) => {
-      e.target.classList.remove("invalid");
       validateFormTab(e);
     });
   });
-})();
-
-const validator = (function () {
-  const types = {
-    TEXT: "text",
-    PASSWORD: "password",
-    EMAIL: "email",
-    TELL: "tell",
-    NUMBER: "number",
-  };
-  const errorCodes = {
-    IS_REQUIRED: "is required",
-    IS_TEXT: "must be text",
-    IS_PASS: "must be password",
-    IS_TELL: "must be numbers",
-    IS_NUMBER: "must be number",
-    IS_EMAIL: "must be a valid email",
-  };
-  function validate(input, type) {
-    let errorCode = -1;
-    if (input.value === "" || input.value === "null") {
-      return errorCodes.IS_REQUIRED;
-    }
-
-    switch (type) {
-      case types.TEXT:
-        if (input.value === "") {
-          valid = false;
-        }
-        break;
-      case types.EMAIL:
-        break;
-      case types.PASSWORD:
-        break;
-    }
-    return errorCode;
-  }
-  return {
-    validate,
-  };
 })();

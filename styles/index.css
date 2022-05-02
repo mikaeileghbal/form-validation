@@ -119,11 +119,11 @@ input {
   border-radius: 4px;
 }
 
-input.invalid {
+input:invalid {
   border-color: #e25c59;
 }
 
-input.invalid + .error {
+input:invalid + .error {
   display: block;
 }
 
@@ -134,7 +134,7 @@ input:active, input:focus {
   border-color: #5fa5ee;
 }
 
-input.invalid:active, input.invalid:focus {
+input:invalid:active, input:invalid:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #f8d6d5;
           box-shadow: 0 0 0 2px #f8d6d5;
