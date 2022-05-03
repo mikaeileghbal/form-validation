@@ -3,14 +3,14 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   background-color: #f1f1f1;
   font-family: "Roboto", sans-serif;
 }
@@ -28,7 +28,7 @@ header {
   padding: 16px 0;
   background-color: #131f4a;
   -webkit-box-shadow: 0 10px 1px #060a22;
-          box-shadow: 0 10px 1px #060a22;
+  box-shadow: 0 10px 1px #060a22;
   border-bottom: 1px solid #17356b;
   z-index: 100;
 }
@@ -38,8 +38,8 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .centered {
@@ -101,7 +101,7 @@ h1 {
   min-width: 300px;
   background-color: #ffffff;
   -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
   color: #131f4a;
   border-radius: 4px;
 }
@@ -119,25 +119,27 @@ input {
   border-radius: 4px;
 }
 
-input:invalid {
+input.invalid {
   border-color: #e25c59;
 }
 
-input:invalid + .error {
+input.invalid + .error {
   display: block;
 }
 
-input:active, input:focus {
+input:active,
+input:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #d7e8fb;
-          box-shadow: 0 0 0 2px #d7e8fb;
+  box-shadow: 0 0 0 2px #d7e8fb;
   border-color: #5fa5ee;
 }
 
-input:invalid:active, input:invalid:focus {
+input:active.invalid,
+input:focus.invalid {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #f8d6d5;
-          box-shadow: 0 0 0 2px #f8d6d5;
+  box-shadow: 0 0 0 2px #f8d6d5;
   border-color: #e25c59;
 }
 
@@ -179,7 +181,7 @@ button:hover {
 
 button:focus {
   -webkit-box-shadow: 0 0 0 2px #d7e8fb;
-          box-shadow: 0 0 0 2px #d7e8fb;
+  box-shadow: 0 0 0 2px #d7e8fb;
 }
 
 #previous {

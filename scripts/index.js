@@ -57,7 +57,11 @@ const formValidate = (function () {
     inputs.forEach((input) => {
       if (!input.validity.valid) {
         valid = false;
-        input.nextElementSibling.textContent = getErrorMessage(input);
+        console.log("empty");
+        input.classList.add("invalid");
+        input.nextElementSibling.textContent = `This field ${errorCode}.`;
+      } else {
+        input.classList.remove("invalid");
       }
     });
 
@@ -107,4 +111,35 @@ const formValidate = (function () {
       validateFormTab(e);
     });
   });
+})();
+
+const validator = (function () {
+  const inputTypes = {
+    text: {
+      pattern: "[a-zA-Z]",
+      messages: ["is required", "must be text characters only"],
+    },
+    email: {
+      pattern: "[a-zA-Z][0-9]+@[a-zA-Z][0-9]+.(com|org|net)",
+      messages: ["is required", "must be a valid email address"],
+    },
+  };
+
+  function validate(input, type) {
+    let errorCode = -1;
+
+    if (input.value === "" || input.value === "null") {
+      return inputTypes[type].messages[0];
+    }
+
+    const pattern = new RegExp(inputTypes[type].pattern);
+    if (!pattern.test(input.value)) {
+      return inputTypes[type].messages[1];
+    }
+
+    return errorCode;
+  }
+  return {
+    validate,
+  };
 })();

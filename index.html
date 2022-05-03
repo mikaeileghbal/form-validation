@@ -27,11 +27,15 @@
           <div class="tab">
             Name:
             <p>
-              <input type="text" placeholder="First name..." required />
+              <input
+                type="text"
+                placeholder="First name..."
+                title="First name"
+              />
               <span class="error"></span>
             </p>
             <p>
-              <input type="text" placeholder="Last name..." required />
+              <input type="text" placeholder="Last name..." title="Last name" />
               <span class="error"></span>
             </p>
           </div>
@@ -39,21 +43,11 @@
           <div class="tab">
             Contact info:
             <p>
-              <input
-                type="email"
-                placeholder="Email..."
-                required
-                minlength="8"
-              />
+              <input type="email" placeholder="Email..." />
               <span class="error"></span>
             </p>
             <p>
-              <input
-                type="number"
-                placeholder="Phone..."
-                pattern="\+?[0-9]"
-                required
-              />
+              <input type="tell" placeholder="Phone..." />
               <span class="error"></span>
             </p>
           </div>
@@ -77,16 +71,11 @@
           <div class="tab">
             Login info:
             <p>
-              <input type="text" placeholder="username" required />
+              <input type="number" placeholder="username" />
               <span class="error"></span>
             </p>
             <p>
-              <input
-                type="password"
-                placeholder="password"
-                required
-                minlength="8"
-              />
+              <input type="number" placeholder="password" />
               <span class="error"></span>
             </p>
           </div>
