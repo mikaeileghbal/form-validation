@@ -55,8 +55,7 @@ const formValidate = (function () {
     const inputs = tab.querySelectorAll("input");
 
     inputs.forEach((input) => {
-      const errorCode = validator.validate(input, input.type);
-      if (errorCode !== -1) {
+      if (!input.validity.valid) {
         valid = false;
         console.log("empty");
         input.classList.add("invalid");
@@ -71,6 +70,28 @@ const formValidate = (function () {
     }
 
     return valid;
+  }
+
+  function getErrorMessage(input) {
+    const errorMessages = {
+      required: "This field is required.",
+      email: "You need to fill in a valid email address.",
+      password: "Your password must containt at least 8 characters",
+      tel: "You must fill in a phone number",
+      number: "You must fill in only numbers",
+      tooShort: "You need to enter at least",
+    };
+    console.log("type", input.type);
+
+    if (input.validity.valueMissing) {
+      return errorMessages["required"];
+    } else if (input.validity.typeMismatch) {
+      return errorMessages[input.type];
+    } else if (input.validity.patterMismatch) {
+      return errorMessages[input.type];
+    } else if (input.validity.tooShort) {
+      return `${errorMessages["tooShort"]} ${input.minLength} characters`;
+    }
   }
 
   function submitForm() {
