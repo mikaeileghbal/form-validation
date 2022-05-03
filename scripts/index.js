@@ -61,6 +61,8 @@ const formValidate = (function () {
         console.log("empty");
         input.classList.add("invalid");
         input.nextElementSibling.textContent = `This field ${errorCode}.`;
+      } else {
+        input.classList.remove("invalid");
       }
     });
 
@@ -85,45 +87,35 @@ const formValidate = (function () {
 
   document.querySelectorAll("input:not([type='button'])").forEach((input) => {
     input.addEventListener("input", (e) => {
-      e.target.classList.remove("invalid");
       validateFormTab(e);
     });
   });
 })();
 
 const validator = (function () {
-  const types = {
-    TEXT: "text",
-    PASSWORD: "password",
-    EMAIL: "email",
-    TELL: "tell",
-    NUMBER: "number",
+  const inputTypes = {
+    text: {
+      pattern: "[a-zA-Z]",
+      messages: ["is required", "must be text characters only"],
+    },
+    email: {
+      pattern: "[a-zA-Z][0-9]+@[a-zA-Z][0-9]+.(com|org|net)",
+      messages: ["is required", "must be a valid email address"],
+    },
   };
-  const errorCodes = {
-    IS_REQUIRED: "is required",
-    IS_TEXT: "must be text",
-    IS_PASS: "must be password",
-    IS_TELL: "must be numbers",
-    IS_NUMBER: "must be number",
-    IS_EMAIL: "must be a valid email",
-  };
+
   function validate(input, type) {
     let errorCode = -1;
+
     if (input.value === "" || input.value === "null") {
-      return errorCodes.IS_REQUIRED;
+      return inputTypes[type].messages[0];
     }
 
-    switch (type) {
-      case types.TEXT:
-        if (input.value === "") {
-          valid = false;
-        }
-        break;
-      case types.EMAIL:
-        break;
-      case types.PASSWORD:
-        break;
+    const pattern = new RegExp(inputTypes[type].pattern);
+    if (!pattern.test(input.value)) {
+      return inputTypes[type].messages[1];
     }
+
     return errorCode;
   }
   return {

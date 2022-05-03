@@ -35,8 +35,8 @@ input {
     box-shadow: 0 0 0 2px $input-shadow;
     border-color: $blue-medium;
   }
-  &.invalid:active,
-  &.invalid:focus {
+  &:active.invalid,
+  &:focus.invalid {
     outline: none;
     box-shadow: 0 0 0 2px $input-invalid-shadow;
     border-color: $red;

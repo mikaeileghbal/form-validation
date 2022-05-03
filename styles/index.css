@@ -134,7 +134,7 @@ input:active, input:focus {
   border-color: #5fa5ee;
 }
 
-input.invalid:active, input.invalid:focus {
+input:active.invalid, input:focus.invalid {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #f8d6d5;
           box-shadow: 0 0 0 2px #f8d6d5;
