@@ -55,9 +55,9 @@ const formValidate = (function () {
     const inputs = tab.querySelectorAll("input");
 
     inputs.forEach((input) => {
-      if (!input.validity.valid) {
+      const errorCode = Validator.validate(input, input.type);
+      if (errorCode !== -1) {
         valid = false;
-        console.log("empty");
         input.classList.add("invalid");
         input.nextElementSibling.textContent = `This field ${errorCode}.`;
       } else {
@@ -70,28 +70,6 @@ const formValidate = (function () {
     }
 
     return valid;
-  }
-
-  function getErrorMessage(input) {
-    const errorMessages = {
-      required: "This field is required.",
-      email: "You need to fill in a valid email address.",
-      password: "Your password must containt at least 8 characters",
-      tel: "You must fill in a phone number",
-      number: "You must fill in only numbers",
-      tooShort: "You need to enter at least",
-    };
-    console.log("type", input.type);
-
-    if (input.validity.valueMissing) {
-      return errorMessages["required"];
-    } else if (input.validity.typeMismatch) {
-      return errorMessages[input.type];
-    } else if (input.validity.patterMismatch) {
-      return errorMessages[input.type];
-    } else if (input.validity.tooShort) {
-      return `${errorMessages["tooShort"]} ${input.minLength} characters`;
-    }
   }
 
   function submitForm() {
@@ -113,14 +91,14 @@ const formValidate = (function () {
   });
 })();
 
-const validator = (function () {
+const Validator = (function () {
   const inputTypes = {
     text: {
       pattern: "[a-zA-Z]",
       messages: ["is required", "must be text characters only"],
     },
     email: {
-      pattern: "[a-zA-Z][0-9]+@[a-zA-Z][0-9]+.(com|org|net)",
+      pattern: "([a-zA-Z]|[0-9])+@([a-zA-Z]|[0-9])+.(com|org|net)",
       messages: ["is required", "must be a valid email address"],
     },
   };
