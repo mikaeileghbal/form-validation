@@ -24,7 +24,7 @@ const Validator = (function () {
 
   function validate(input, type) {
     let errorCode = -1;
-    if (input.value === "" || input.value === "null") {
+    if (input.value === "" || input.value === null) {
       return inputTypes[type].messages[0];
     }
     const pattern = new RegExp(inputTypes[type].pattern);
