@@ -22,8 +22,15 @@ header {
 
 .topnav {
   margin-left: auto;
-  color: $white-text;
-  font-size: 14px;
+
+  span {
+    color: $white-text;
+    font-size: 14px;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 
   li {
     display: inline;

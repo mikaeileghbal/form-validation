@@ -48,8 +48,17 @@ header {
 
 .topnav {
   margin-left: auto;
+}
+
+.topnav span {
   color: #dae0e4;
   font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .topnav span {
+    display: none;
+  }
 }
 
 .topnav li {
