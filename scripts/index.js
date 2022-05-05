@@ -1,23 +1,23 @@
 const Validator = (function () {
   const inputTypes = {
     text: {
-      pattern: "[a-zA-Z]",
+      patterns: [".+", "[a-zA-Z]"],
       messages: ["is required", "must be text characters only"],
     },
     email: {
-      pattern: "([a-zA-Z]|[0-9])+@([a-zA-Z]|[0-9])+\\.([a-zA-Z]){3}",
+      patterns: [".+", "([a-zA-Z]|[0-9])+@([a-zA-Z]|[0-9])+\\.([a-zA-Z]){3}"],
       messages: ["is required", "must be a valid email address"],
     },
     tel: {
-      pattern: "\\+?([0-9]){8}",
+      patterns: [".+", "\\+?([0-9]){8}"],
       messages: ["is required", "must be a valid phone number"],
     },
     number: {
-      pattern: "([0-9])",
+      patterns: [".+", "([0-9])"],
       messages: ["is required", "must be a numbers only"],
     },
     password: {
-      pattern: ".{8}",
+      patterns: [".+", ".{8}"],
       messages: ["is required", "at least 8 characters"],
     },
   };
@@ -27,9 +27,11 @@ const Validator = (function () {
     if (input.value === "" || input.value === null) {
       return inputTypes[type].messages[0];
     }
-    const pattern = new RegExp(inputTypes[type].pattern);
-    if (!pattern.test(input.value)) {
-      return inputTypes[type].messages[1];
+    for (let i = 0; i < inputTypes[type].patterns.length; i++) {
+      const pattern = new RegExp(inputTypes[type].patterns[i]);
+      if (!pattern.test(input.value)) {
+        return inputTypes[type].messages[i];
+      }
     }
     return errorCode;
   }
