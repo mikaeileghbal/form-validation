@@ -17,8 +17,13 @@ const Validator = (function () {
       messages: ["is required", "must be a numbers only"],
     },
     password: {
-      patterns: [".+", ".{8}"],
-      messages: ["is required", "at least 8 characters"],
+      patterns: [".+", "[A-Z]", "[0-9]", ".{8}"],
+      messages: [
+        "is required",
+        "must have an uppercase letter",
+        "must have a number",
+        "must be at least 8 characters",
+      ],
     },
   };
 
